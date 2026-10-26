@@ -1,0 +1,6 @@
+Enter the starting point: 5
+Enter the step size: 1
+Enter the maximum number of iterations: 10
+Initial point: (x=5.00), Value: -15.00
+The best position is:1.00
+The best value is:9.00
