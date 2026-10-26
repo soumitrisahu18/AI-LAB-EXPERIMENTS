@@ -1,27 +1,23 @@
-# Minimax Algorithm
-def minimax(node, depth, maximizing_player):
-    # If leaf node is reached
-    if depth == 0 or isinstance(node, int):
-        return node
-    if maximizing_player:
-        max_eval = float('-inf')
-        for child in node:
-            eval = minimax(child, depth - 1, False)
-            max_eval = max(max_eval, eval)
-        return max_eval
+def minimax(depth, nodeIndex, isMax, scores, height):
+    # Base case: target depth (height) reached
+    if depth == height:
+        return scores[nodeIndex]
+    
+    if isMax:
+        return max(
+            minimax(depth + 1, nodeIndex * 2, False, scores, height),
+            minimax(depth + 1, nodeIndex * 2 + 1, False, scores, height)
+        )
     else:
-        min_eval = float('inf')
-        for child in node:
-            eval = minimax(child, depth - 1, True)
-            min_eval = min(min_eval, eval)
-        return min_eval
-# Main program
-# Game tree with leaf node values
-game_tree = [
-    [3, 5],
-    [6, 9]
-]
-depth = 2
-best_value = minimax(game_tree, depth, True)
-print("Minimax Algorithm")
-print("Optimal value:", best_value)
+        return min(
+            minimax(depth + 1, nodeIndex * 2, True, scores, height),
+            minimax(depth + 1, nodeIndex * 2 + 1, True, scores, height)
+        )
+
+# Main Program
+if __name__ == "__main__":
+    scores = list(map(int, input("Enter 8 space-separated scores: ").split()))
+    height = 3
+    
+    result = minimax(0, 0, True, scores, height)
+    print("The optimal value is:", result)
