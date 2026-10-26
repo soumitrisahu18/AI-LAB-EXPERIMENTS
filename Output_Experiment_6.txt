@@ -1,0 +1,2 @@
+Enter 8 leaf nodes: 3 18 2 9 12 18 23 3
+The optimal value is: 18
