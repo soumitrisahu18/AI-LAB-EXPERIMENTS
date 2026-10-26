@@ -1,0 +1,7 @@
+Enter start node: A
+Enter goal node: D
+
+Path: A -> B -> C -> D
+Cost: 4
+
+We have successfully implemented A* algorithm using Python.
